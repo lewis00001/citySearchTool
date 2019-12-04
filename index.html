@@ -29,7 +29,7 @@
   <input type="text" placeholder="city name" id="cityEntered">
   <button class="process-city">Search</button>
   <br><br>
-  <h4>Results:</h4>
+  <h4>Results for: <span id="cityDisplay"></span></h4>
   <div class="infoOutput"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -38,9 +38,11 @@
     var cityEntered;
 
     $(".process-city").on("click", function () {
-      $("infoOutput").html(" ");
+      $(".infoOutput").html(" ");
+      $("#cityDisplay").text("");
       var city = $("#cityEntered").val();
       cityEntered = city;
+      $("#cityDisplay").text(cityEntered);
       console.log(cityEntered);
       getCityInfo();
     });
